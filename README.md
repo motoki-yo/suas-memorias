@@ -1,6 +1,6 @@
 # Suas Memórias
 
-![Logo](/src/assets/logo.png)
+<img src="/src/assets/logo.png" alt="Logo" width="200"/>
 
 ## Overview
 
@@ -58,7 +58,12 @@ Make sure you have the following installed on your development machine:
 
 ## Screenshots
 
-Include screenshots or GIFs showcasing different features of your app.
+<p align="center">
+  <img src="src/assets/screenshot-1.png" alt="Screenshot 1" width="200"/>
+  <img src="src/assets/screenshot-2.png" alt="Screenshot 2" width="200"/>
+  <img src="src/assets/screenshot-3.png" alt="Screenshot 3" width="200"/>
+  <img src="src/assets/screenshot-4.png" alt="Screenshot 4" width="200"/>
+</p>
 
 ## License
 
