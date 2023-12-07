@@ -1,6 +1,6 @@
 # Suas Memórias
 
-![Logo](link-to-your-logo-image)
+![Logo](suas-memorias/src/assets/logo.png)
 
 ## Overview
 
