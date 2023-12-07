@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- User Avatar in the Left Corner -->
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-avatar>
+          <img src="assets/placeholder.jpg" alt="User Avatar">
+        </ion-avatar>
+      </ion-button>
+    </ion-buttons>
+    
+    <!-- Centered Title -->
+    <ion-title class="ion-text-center">Seu álbum</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">SAIR</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <!-- Check if there are contacts -->
+  <ng-container *ngIf="userService.currentUser && userService.currentUser.contacts && userService.currentUser.contacts.length > 0; else noContactsMessage">
+    <!-- Display photos of each contact -->
+    <ion-grid>
+      <ion-row *ngFor="let contact of userService.currentUser.contacts">
+        <ion-col size="12">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Álbum de {{ contact.fullName }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-row>
+                <ion-col size="4" *ngFor="let photo of contact.photos; let i = index">
+                  <div class="photo-container" (click)="openPhotoModal(photo)">
+                    <img [src]="photo" alt="Contact Photo" class="gallery-photo">
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ng-container>
+  
+  <!-- Message to show when there are no contacts -->
+  <ng-template #noContactsMessage>
+    <div class="no-contact ion-text-center">
+      <ion-text class="no-contact">Sem contatos, adicione na aba de configurações!</ion-text>
+    </div>
+
+  </ng-template>
+
+</ion-content>

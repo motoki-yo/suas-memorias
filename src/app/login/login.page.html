@@ -1,0 +1,40 @@
+<!-- login.page.html -->
+<ion-content class="ion-padding">
+  <div class="login-container">
+    <div class="img-logo">
+      <ion-img src="assets/logo.png" alt="Logo" class="logo"></ion-img>
+    </div>
+
+    <div class="welcome-back ion-text-center">
+      <ion-text class="title">Bem-vindo de volta às<br>Suas Memórias</ion-text>
+    </div>
+
+    <div class="welcome-back ion-text-center">
+      <ion-text class="description-text">Reviva momentos especiais com apenas um toque. Reencontre as histórias que fizeram a sua vida única.</ion-text>
+    </div>
+
+    <div class="login-form">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <ion-item>
+          <ion-label position="floating">E-mail</ion-label>
+          <ion-input formControlName="email" type="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Senha</ion-label>
+          <ion-input formControlName="password" type="{{ showPassword ? 'text' : 'password' }}"></ion-input>
+          <ion-icon
+            name="{{ showPassword ? 'eye-off' : 'eye' }}"
+            slot="end"
+            class="password-toggle"
+            (click)="togglePasswordVisibility()">
+          </ion-icon>
+        </ion-item>
+
+        <ion-button class="login-button" expand="full" type="submit">Entrar</ion-button>
+
+        <ion-button class="login-button" expand="full" (click)="goToSignUp()" color="dark">Fazer cadastro</ion-button>
+      </form>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,28 @@
+.round-avatar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto; // Set the height as needed
+    padding: 5%;
+  }
+  
+  .round-avatar {
+    border-radius: 50%;
+    width: 250px; // Set the width as needed
+    height: 250px; // Set the height as needed
+    object-fit: cover;
+  }
+
+.custom-ion-content {
+    ion-padding {
+      padding: 10px; // Adjust the value as needed
+    }
+  
+    ion-grid {
+      margin-bottom: 0; // Remove or adjust the margin as needed
+    }
+
+    height: 100px;
+  }
+  
+  

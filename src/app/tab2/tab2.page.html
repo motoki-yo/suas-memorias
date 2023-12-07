@@ -1,0 +1,93 @@
+<!-- perfil.page.html -->
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- User Avatar in the Left Corner -->
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-avatar>
+          <img *ngIf="userData" [src]="'assets/placeholder.jpg'" alt="User Avatar">
+        </ion-avatar>
+      </ion-button>
+    </ion-buttons>
+    
+    <!-- Centered Title -->
+    <ion-title class="ion-text-center">Perfil</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        SAIR
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Perfil</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  
+  <div class="round-avatar-container">
+    <img *ngIf="userData" [src]="'assets/placeholder.jpg'" alt="User Avatar" class="round-avatar">
+  </div> 
+
+  <ion-card *ngIf="userData">
+    <ion-card-content>
+      <ion-label>Nome completo: </ion-label>
+      <ion-input
+        [(ngModel)]="editedUserData.fullName"
+        [placeholder]="userData?.fullName || 'Nome completo'"
+        (ngModelChange)="onInputChange()"
+      ></ion-input>
+    </ion-card-content>
+
+    <ion-card-content>
+      <ion-label>Endereço de e-mail: </ion-label>
+      <ion-input
+        [(ngModel)]="editedUserData.email"
+        [placeholder]="userData?.email || 'E-mail'"
+        (ngModelChange)="onInputChange()"
+      ></ion-input>
+    </ion-card-content>
+
+    <ion-card-content>
+      <ion-label>Sexo: </ion-label>
+      <ion-input
+        [(ngModel)]="editedUserData.gender"
+        [placeholder]="userData?.gender || 'Sexo'"
+        (ngModelChange)="onInputChange()"
+      ></ion-input>
+    </ion-card-content>
+
+    <ion-card-content>
+      <ion-label>Data de nascimento: </ion-label>
+      <ion-input
+        [(ngModel)]="editedUserData.birth"
+        [placeholder]="userData?.birth || 'Data de nascimento (DD/MM/AAAA)'"
+        (ngModelChange)="onInputChange()"
+      ></ion-input>
+    </ion-card-content>
+
+    <ion-card-content>
+      <ion-label>Número de celular: </ion-label>
+      <ion-input
+        [(ngModel)]="editedUserData.phone"
+        [placeholder]="userData?.phone || 'Numero de celular'"
+        (ngModelChange)="onInputChange()"
+      ></ion-input>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-content class="custom-ion-content">
+    <ion-grid>
+      <ion-row class="ion-justify-content-center ion-align-items-center">
+        <ion-col size="auto">
+          <ion-button (click)="saveChanges()" [disabled]="!changesMade">Salvar alterações</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content> 
+
+</ion-content>

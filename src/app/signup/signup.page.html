@@ -1,0 +1,59 @@
+<!-- signup.page.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- Button to navigate back to the login page -->
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Faça seu cadastro na plataforma!</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="signup-container">
+    <div class="img-logo">
+      <ion-img src="assets/logo.png" alt="Logo" class="logo"></ion-img>
+    </div>
+
+    <div class="welcome-back ion-text-center">
+      <ion-text class="title">Bem-vindo de volta às<br>Suas Memórias</ion-text>
+    </div>
+
+    <div class="welcome-back ion-text-center">
+    <ion-text class="description-text">Reviva momentos especiais com apenas um toque. Reencontre as histórias que fizeram a sua vida única.</ion-text>
+    </div>
+
+    <div class="signup-form">
+      <!-- Use formGroup and formControlName to bind to the reactive form -->
+      <form [formGroup]="signupForm" (ngSubmit)="signup()" novalidate>
+        <ion-item>
+          <ion-label position="floating">Nome completo</ion-label>
+          <ion-input formControlName="fullName" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">E-mail</ion-label>
+          <ion-input formControlName="email" type="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Senha</ion-label>
+          <ion-input formControlName="password" type="{{ showPassword ? 'text' : 'password' }}"></ion-input>
+          <ion-icon
+            name="{{ showPassword ? 'eye-off' : 'eye' }}"
+            slot="end"
+            class="password-toggle"
+            (click)="togglePasswordVisibility()">
+          </ion-icon>
+        </ion-item>
+
+        <!-- Add any additional fields for the sign-up form -->
+
+        <ion-button class="signup-button" expand="full" type="submit">Cadastrar</ion-button>
+      </form>
+
+      <!-- Button to navigate back to the login page -->
+      <ion-button class="signup-button" expand="full" (click)="goToLogin()" color="dark">Voltar ao Login</ion-button>
+    </div>
+  </div>
+</ion-content>

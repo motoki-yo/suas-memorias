@@ -1,0 +1,15 @@
+/* Add this to your component's styles or global styles */
+.photo-container {
+    /* Set a fixed aspect ratio, adjust the padding-bottom percentage as needed */
+    position: relative;
+    padding-bottom: 100%;
+    overflow: hidden;
+  }
+  
+  .gallery-photo {
+    /* Ensure the image takes the full space of the container */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+  }

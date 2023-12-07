@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- User Avatar in the Left Corner -->
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-avatar> <img src="assets/placeholder.jpg" alt="User Avatar"></ion-avatar>
+      </ion-button>
+    </ion-buttons>
+    
+    <!-- Centered Title -->
+    <ion-title class="ion-text-center">Configurações</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        SAIR
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-searchbar
+    placeholder="Busque contatos por E-mail"
+    [(ngModel)]="searchEmail"
+    (ionChange)="filterUsers()"
+  ></ion-searchbar>
+
+  <ion-list>
+    <ion-item *ngFor="let user of allUsers.slice(0, allUsers.length - 1)">
+      <!-- Skip the current user -->
+      <ng-container *ngIf="user.id !== userData?.id">
+        <ion-label>{{ user.fullName }}</ion-label>
+        <ion-label>{{ user.email }}</ion-label>
+        <ion-button
+          [color]="isContact(user) ? 'danger' : 'primary'"
+          [disabled]="isMaxContactsReached() && isContact(user) === false"
+          (click)="toggleContact(user)"
+        >
+          {{ isContact(user) ? 'Remover dos Contatos' : 'Adicionar aos Contatos' }}
+        </ion-button>
+      </ng-container>
+    </ion-item>
+  </ion-list>
+  
+
+  <!-- ... (any other content) -->
+</ion-content>

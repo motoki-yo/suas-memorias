@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- User Avatar in the Left Corner -->
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-avatar>
+          <img src="assets/placeholder.jpg" alt="User Avatar">
+        </ion-avatar>
+      </ion-button>
+    </ion-buttons>
+    
+    <!-- Centered Title -->
+    <ion-title class="ion-text-center">Seu álbum</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">SAIR</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <!-- Centered Title for Condensed Header -->
+      <ion-title size="large" class="ion-text-center">Album</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Button to add more photos -->
+  <ion-item>
+    <ion-input placeholder="Insira a URL da foto" [(ngModel)]="newPhotoUrl"></ion-input>
+    <ion-button expand="full" (click)="addPhoto()">Adicionar foto</ion-button>
+  </ion-item>
+
+<!-- Photo Gallery -->
+<ion-grid>
+  <ion-row>
+    <ion-col size="4" *ngFor="let photo of photos; let i = index">
+      <!-- Use a container with a fixed aspect ratio to maintain consistent width and height -->
+      <div class="photo-container">
+        <img [src]="photo" alt="Photo" class="gallery-photo">
+        <!-- Button to remove the photo -->
+        <ion-button fill="clear" color="danger" (click)="removePhoto(i)">
+          <ion-icon name="trash-bin"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+</ion-content>

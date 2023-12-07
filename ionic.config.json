@@ -1,0 +1,7 @@
+{
+  "name": "suas-memorias",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,30 @@
+/* signup.page.scss */
+
+  .signup-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .signup-form {
+    ion-item {
+      margin-bottom: 15px;
+    }
+  }
+  
+  .signup-button {
+    margin-top: 20px;
+  }
+
+  .password-toggle {
+    position: absolute;
+    right: 16px; /* Adjust the right position as needed */
+    top: 40%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 2; /* Ensure the icon is above other elements */
+    pointer-events: auto; /* Make sure the icon can receive pointer events */
+  }
+
+  
+  
